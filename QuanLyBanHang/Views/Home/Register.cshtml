@@ -1,0 +1,69 @@
+﻿@model QuanLyBanHang.Models.KhachHang
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="form-horizontal">
+    <h1>Đăng Ký</h1>
+    @using (Html.BeginForm("Register", "Home", FormMethod.Post))// Chức năng , Controrller,Phương thức gửi dữ liệu lên
+    {
+        @Html.AntiForgeryToken()//Bảo mật
+        <div class="form-group">
+            @Html.LabelFor(kh => kh.MaKH, "Mã Khách Hàng:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(kh => kh.MaKH, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mã" } })
+                @Html.ValidationMessageFor(kh => kh.MaKH, "", new { @class = "text-danger", @placeholder = "Mã" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(kh => kh.TenKH, "Tên Khách Hàng:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(kh => kh.TenKH, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tên" } })
+                @Html.ValidationMessageFor(kh => kh.TenKH, "", new { @class = "text-danger", @placeholder = "Tên" })
+            </div>
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(kh => kh.DienThoai, "Số Điện Thoại:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(kh => kh.DienThoai, new { htmlAttributes = new { @class = "form-control", @placeholder = "Số Điện Thoại" } })
+                @Html.ValidationMessageFor(kh => kh.DienThoai, "", new { @class = "text-danger", @placeholder = "Số Điện Thoại" })
+            </div>
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(kh => kh.DiaChi, "Địa Chỉ:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(kh => kh.DiaChi, new { htmlAttributes = new { @class = "form-control", @placeholder = "Địa Chỉ" } })
+                @Html.ValidationMessageFor(kh => kh.DiaChi, "", new { @class = "text-danger", @placeholder = "Địa Chỉ" })
+            </div>
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(kh => kh.Email, "Email:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(kh => kh.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email" } })
+                @Html.ValidationMessageFor(kh => kh.Email, "", new { @class = "text-danger", @placeholder = "Email" })
+            </div>
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(kh => kh.password, "Mật Khẩu:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(kh => kh.password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mật Khẩu" } })
+                @Html.ValidationMessageFor(kh => kh.password, "", new { @class = "text-danger", @placeholder = "Mật Khẩu" })
+            </div>
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(kh => kh.confirm_password, "Xác Nhận Mật Khẩu:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(kh => kh.confirm_password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Xác Nhận Mật Khẩu" } })
+                @Html.ValidationMessageFor(kh => kh.confirm_password, "", new { @class = "text-danger", @placeholder = "Xác Nhận Mật Khẩu" })
+            </div>
+
+        </div>
+        <input type="submit" value="Đăng Ký" />
+    }
+</div>
